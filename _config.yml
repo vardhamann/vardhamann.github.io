@@ -30,7 +30,8 @@ github_username:  vardhamann
 plugins:
   - jekyll-feed
 
-theme: no-style-please
+#theme: no-style-please
+theme: riggraz/no-style-please
 
 theme_config:
   appearance: "dark" # can be "light", "dark" or "auto"
