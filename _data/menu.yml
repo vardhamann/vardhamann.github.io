@@ -2,12 +2,12 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: <p> About me <br> I am a fourth-year Integrated Master's student in the School of Biological Sciences, <a href="https://www.cbs.ac.in/" target=”_blank”>UM-DAE Centre for Excellence in Basic Sciences</a>, Mumbai. <br> I am currently interested in understanding the mechanisms of emergent properties, and the randomness that dictates them. <br> Outside academics I love cycling, cooking and enjoy reading fantasy and science fiction genres, playing videogames, and listening to music. </p>
-
-  - title: my blogs
-    post_list:
-     limit: 3
+  - title: <p> About Me <br>I recently completed my Integrated Master's in the School of Biological Sciences, <a href="https://www.cbs.ac.in/" target=”_blank”>UM-DAE Centre for Excellence in Basic Sciences</a>, Mumbai. <br> I am currently exploring opportunities in research and academia, with a keen interest in understanding systems in neuroscience. <br> My past research focused on the effects of substrate properties on cellular migration. <br> Outside of academics, I enjoy cycling, reading, and 3D printing.<p>
+  # - title: my blogs
+  #   post_list:
+  #    limit: 3
   - title: Contact me
     entries:
         - title: <a href="mailto:be.vardhamann@gmail.com">be.vardhamann@gmail.com</a>
         - title: <a href="https://twitter.com/Be_Vardhamann"> Twitter </a>
+        - title: <a href="/assets/files/cv.pdf" target="_blank"> My CV, last updated 06/24 </a>
