@@ -1,0 +1,177 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <style>
+      #timer {
+          font-size: 10em;
+          margin-bottom: 20px;
+      }
+
+      .buttons {
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+		  margin-bottom: 20px;
+      }
+
+      .inputs {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+      }
+
+      input {
+          padding: 5px;
+          font-size: 1em;
+          width: 60px;
+      }
+
+      #cycleDisplay {
+          margin-top: 20px;
+          font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pomodoro Timer</h1>
+
+    <div id="timer">25:00</div>
+
+    <div id="cycleDisplay">Current Cycle: 0</div>
+
+    <div class="buttons">
+      <button id="startPauseButton" onclick="toggleTimer()"> Start </button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+
+	<div class="inputs">
+      <div>
+        <label for="workDuration">Work (minutes):</label>
+        <input type="number" id="workDuration" value="25" min="1">
+      </div>
+      <div>
+        <label for="breakDuration">Break (minutes):</label>
+        <input type="number" id="breakDuration" value="5" min="1">
+      </div>
+      <div>
+        <label for="cycleCount">Cycles:</label>
+        <input type="number" id="cycleCount" value="3" min="1">
+      </div>
+    </div>
+
+    <audio id="bellSound" src="/assets/audio/bell.mp3" preload="auto"></audio>
+
+    <script>
+      let timer;
+      let isRunning = false;
+      let isPaused = false;
+      let isBreak = false;
+      let cycleCounter = 1;
+      let timeLeft = 25 * 60;
+      let totalCycles;
+
+      function toggleTimer() {
+          if (isRunning) {
+              pauseTimer();
+          } else {
+              startTimer();
+          }
+      }
+
+      function startTimer() {
+          totalCycles = parseInt(document.getElementById('cycleCount').value);
+          isRunning = true;
+          isPaused = false;
+          document.getElementById('startPauseButton').textContent = 'Pause';
+          if (!isPaused) {
+              timeLeft = parseInt(document.getElementById(isBreak ? 'breakDuration' : 'workDuration').value) * 60;
+          }
+          updateTimerDisplay();
+
+          timer = setInterval(() => {
+              timeLeft--;
+              updateTimerDisplay();
+
+              if (timeLeft === 0) {
+                  playSound();
+                  clearInterval(timer);
+                  isRunning = false;
+                  isBreak = !isBreak;
+                  if (!isBreak) {
+                      cycleCounter++; // Increment cycle only after a break ends
+                      updateCycleDisplay();
+                  }
+
+                  if (cycleCounter >= totalCycles) {
+                      cycleCounter = 1; // Reset counter after reaching total cycles
+                      updateCycleDisplay();
+                      playSoundThrice();
+                  } else {
+                      startTimer();
+                  }
+              }
+          }, 1000);
+      }
+
+      function pauseTimer() {
+          clearInterval(timer);
+          isRunning = false;
+          isPaused = true;
+          document.getElementById('startPauseButton').textContent = 'Start';
+      }
+
+      function resetTimer() {
+          clearInterval(timer);
+          isRunning = false;
+          isPaused = false;
+          isBreak = false;
+          cycleCounter = 1;
+          timeLeft = parseInt(document.getElementById('workDuration').value) * 60;
+          updateTimerDisplay();
+          updateCycleDisplay();
+          document.getElementById('startPauseButton').textContent = 'Start';
+      }
+
+      function updateTimerDisplay() {
+          const minutes = Math.floor(timeLeft / 60);
+          const seconds = timeLeft % 60;
+          document.getElementById('timer').textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      }
+
+      function updateCycleDisplay() {
+          document.getElementById('cycleDisplay').textContent = `Current Cycle: ${cycleCounter}`;
+      }
+
+      function playSound() {
+          const sound = document.getElementById('bellSound');
+          sound.play();
+      }
+
+	  function playSoundThrice() {
+		  const sound = document.getElementById('bellSound');
+		  let playCount = 0;
+		  const interval = 1000; // Interval between plays in milliseconds
+
+		  function playSound() {
+			  sound.play();
+			  playCount++;
+			  if (playCount < 3) {
+				  setTimeout(playSound, interval);
+			  }
+		  }
+
+		  playSound();
+	  }
+
+      updateTimerDisplay();
+      updateCycleDisplay();
+    </script>
+  </body>
+</html>
