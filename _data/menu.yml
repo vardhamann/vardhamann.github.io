@@ -3,9 +3,8 @@
 
 entries:
   - title: <p> About Me <br>I recently completed my Integrated Master's in the School of Biological Sciences, <a href="https://www.cbs.ac.in/" target=”_blank”>UM-DAE Centre for Excellence in Basic Sciences</a>, Mumbai. <br> I am currently exploring opportunities in research and academia, with a keen interest in understanding systems in neuroscience. <br> My past research focused on the effects of substrate properties on cellular migration. <br> Outside of academics, I enjoy cycling, reading, and 3D printing.<p>
-  # - title: my blogs
-  #   post_list:
-  #    limit: 3
+  - title: <a href="/2024/10/11/Resources.html">Resources</a>
+  # - title: <a href="help">Digital Garden</a>
   - title: Contact me
     entries:
         - title: <a href="mailto:be.vardhamann@gmail.com">be.vardhamann@gmail.com</a>
