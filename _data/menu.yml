@@ -2,11 +2,8 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: <p> About Me <br>I recently completed my Integrated Master's in the School of Biological Sciences, <a href="https://www.cbs.ac.in/" target=”_blank”>UM-DAE Centre for Excellence in Basic Sciences</a>, Mumbai. <br> I am currently exploring opportunities in research and academia, with a keen interest in understanding systems in neuroscience. <br> My past research focused on the effects of substrate properties on cellular migration. <br> Outside of academics, I enjoy cycling, reading, and 3D printing.<p>
-  - title: <a href="/2024/10/11/Resources.html">Resources</a>
+  - title: I recently completed my Integrated Master's in the School of Biological Sciences, <a href="https://www.cbs.ac.in/" target=”_blank”>UM-DAE Centre for Excellence in Basic Sciences</a>, Mumbai. <br> I am currently a graduate trainee at <a href="https://www.neuroact.in/" target=”_blank”>NeuroACT lab, NCBS</a> <br> My past research focused on the effects of substrate properties on cellular migration. <br> Outside of academics, I enjoy cycling and reading. I am an avid 3D printing and electronics enthusiast. I am a strong advocate for FOSS tools in research and everyday workflows. Also have been using EMACS for the past few years!<p>
+  - title: <a href="/2024/10/11/Resources.html">Resources I think are interesting</a>
   # - title: <a href="help">Digital Garden</a>
-  - title: Contact me
-    entries:
-        - title: <a href="mailto:be.vardhamann@gmail.com">be.vardhamann@gmail.com</a>
-        - title: <a href="https://twitter.com/Be_Vardhamann"> Twitter </a>
-        - title: <a href="/assets/files/cv.pdf" target="_blank"> My CV, last updated 10/24 </a>
+  - title: Write to me <a href="mailto:be.vardhamann@gmail.com">be.vardhamann@gmail.com</a>
+  - title: <a href="/assets/files/cv.pdf" target="_blank"> My CV (last updated 10/24)</a>
